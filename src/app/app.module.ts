@@ -6,10 +6,12 @@ import { AppComponent } from './app.component';
 import { FooterComponent } from './component/footer/footer.component';
 import { NavbarComponent } from './component/navbar/navbar.component';
 import { HomeComponent } from './component/home/home.component';
-import {ServiceService} from "./service/service.service";
+import { ServiceService } from "./ProductService/service.service";
 import {HttpClientModule} from "@angular/common/http";
 import { ProductInfoComponent } from './component/product-info/product-info.component';
 import { OffersComponent } from './component/offers/offers.component';
+import { LoginComponent } from './component/login/login.component';
+import { RegistroComponent } from './component/registro/registro.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,9 @@ import { OffersComponent } from './component/offers/offers.component';
     NavbarComponent,
     HomeComponent,
     ProductInfoComponent,
-    OffersComponent
+    OffersComponent,
+    LoginComponent,
+    RegistroComponent
   ],
   imports: [
     BrowserModule,

@@ -8,7 +8,7 @@ import {Producto} from "../model/producto";
 export class ServiceService {
 
   constructor(private http: HttpClient) { }
-  //URL = 'https://project2-back.herokuapp.com/tienda';
+  ///URL = 'https://project2-back.herokuapp.com/tienda';
   URL = 'http://localhost:5000/tienda';
   getProducts(){
     return this.http.get<Producto[]> (this.URL+ '/productlist');
