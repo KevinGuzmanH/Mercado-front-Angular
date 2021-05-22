@@ -1,0 +1,15 @@
+#carouselExampleSlidesOnly{
+  margin: auto;
+}
+img{
+  height: 300px;
+}
+#homeCtn{
+  margin-top: 40px;
+}
+#products{
+  margin-top: 50px  ;
+}
+.card-img-top{
+  height: 200px;
+}

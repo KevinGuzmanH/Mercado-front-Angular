@@ -1,0 +1,31 @@
+<div id="header">
+  <p id="headerT"> {{producto.categoria}}</p>
+</div>
+<div class="container">
+
+  <div id="mainCard" class="card">
+    <div class="card-body">
+      <div class="row">
+        <div class="col-lg-6 offset-1">
+          <img src="https://via.placeholder.com/900x350" class="img-fluid" alt="...">
+        </div>
+        <div class="col-lg-4 offset-lg-1">
+          <div class="card">
+            <div class="card-body">
+              <p id="productNM">{{producto.nombre}}</p>
+              <hr>
+              <p id="productVL">${{producto.valor}}</p>
+              <p>¡Envio Gratis Por Tiempo Limitado!</p>
+              <div id="inputcantidad" class="input-group mb-3">
+                <button class="btn btn-outline-secondary" type="button" id="button-addon1">Cantidad</button>
+                <input type="number" id="inputUnidades" class="form-control" required [placeholder]=" 'Máximo  ' + producto.existencias"   aria-describedby="button-addon1">
+              </div>
+              <button id="btnComprar" class="btn text-white">Comprar Ahora</button>
+              <button id="btnCarro" class="btn text-white">Agregar al Carro</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
