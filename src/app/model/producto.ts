@@ -9,7 +9,6 @@ export class Producto{
   public descripcion: string;
   public oferta: boolean;
 
-
   constructor() {
     this.id = 0;
     this.nombre = 'nombre';

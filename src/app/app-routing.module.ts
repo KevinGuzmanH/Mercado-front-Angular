@@ -5,6 +5,7 @@ import {ProductInfoComponent} from "./component/product-info/product-info.compon
 import {OffersComponent} from "./component/offers/offers.component";
 import {LoginComponent} from "./component/login/login.component";
 import {RegistroComponent} from "./component/registro/registro.component";
+import { GuardService as guard} from "./guard/guard.service";
 
 const routes: Routes = [
   {path: '', redirectTo: 'allproducts', pathMatch: 'full'},
@@ -13,6 +14,7 @@ const routes: Routes = [
   {path: 'allproducts', component: HomeComponent},
   {path: 'productinfo', component: ProductInfoComponent},
   {path: 'offers', component: OffersComponent},
+  // {path: 'ruta', component: editar/eliminar, canActivate: [guard],data: {expectedRol:['admin']}}
 ];
 
 @NgModule({

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {Producto} from "../../model/producto";
 import {ServiceService} from "../../ProductService/service.service";
 import {Router} from "@angular/router";
+import {ServTknService} from "../../serviceTkn/serv-tkn.service";
 
 @Component({
   selector: 'app-home',
@@ -9,10 +10,11 @@ import {Router} from "@angular/router";
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
+  nombreUser = '';
 
   productos: Producto[]=new Array();
   producto: Producto = new Producto();
-  constructor(private service: ServiceService, private router: Router) { }
+  constructor(private service: ServiceService, private router: Router, private ServTknService: ServTknService) { }
 
   ngOnInit(): void {
     this.getProducts();
@@ -26,7 +28,14 @@ export class HomeComponent implements OnInit {
       }
     )
   }
-
+  isLogged():boolean{
+   if (this.ServTknService.getToken()){
+     this.nombreUser = this.ServTknService.getUserName();
+     return true;
+   }else {
+     return false;
+   }
+  }
   info(producto: Producto){
     localStorage.setItem('selectProduct',JSON.stringify(producto));
     this.router.navigate(['productinfo']);

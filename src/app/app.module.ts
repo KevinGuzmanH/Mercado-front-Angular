@@ -12,6 +12,8 @@ import { ProductInfoComponent } from './component/product-info/product-info.comp
 import { OffersComponent } from './component/offers/offers.component';
 import { LoginComponent } from './component/login/login.component';
 import { RegistroComponent } from './component/registro/registro.component';
+import {FormsModule} from "@angular/forms";
+import {InterceptorService} from "./interceptor/interceptor.service";
 
 @NgModule({
   declarations: [
@@ -24,12 +26,13 @@ import { RegistroComponent } from './component/registro/registro.component';
     LoginComponent,
     RegistroComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    HttpClientModule
-  ],
-  providers: [ServiceService],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        HttpClientModule,
+        FormsModule
+    ],
+  providers: [ServiceService,InterceptorService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

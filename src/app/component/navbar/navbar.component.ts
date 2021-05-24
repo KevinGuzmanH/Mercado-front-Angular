@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from "@angular/router";
+import {ServTknService} from "../../serviceTkn/serv-tkn.service";
 
 @Component({
   selector: 'app-navbar',
@@ -7,10 +8,18 @@ import {Router} from "@angular/router";
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
+  logged = false;
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private ServTknService: ServTknService) { }
 
   ngOnInit(): void {
+    if (this.ServTknService.getToken()){
+      this.logged = true;
+    }
+  }
+  onLogOut():void {
+    this.ServTknService.logOut();
+    window.location.reload();
   }
   goHome(){
     this.router.navigate(['allproducts'])
