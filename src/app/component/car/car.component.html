@@ -1,0 +1,23 @@
+<div class="text-center text-white container p-4 ">
+  <p class="fs-1 mt">¡ {{nombreUsuario}} ! No dejes que el carro se oxide</p>
+  <div class="container">
+    <div *ngFor="let producto of productos" class="card mb-5" style="display: block">
+      <div class="row g-0">
+        <div class="col-md-4">
+          <img class="w-75 my-3" src="{{producto.imagen}}" alt="...">
+        </div>
+        <div class="col-md-8">
+          <div class="card-body">
+            <h5 class="card-title">{{producto.nombre}}</h5>
+            <p class="card-text">{{producto.descripcion}}</p>
+            <p class="card-text"><small class="text-muted">Aún quedan {{producto.existencias}} unidades</small></p>
+            <button class="btn btn-success mx-2">Finalizar Compra</button>
+            <button (click)="deleteFromCar(producto.id)" class="btn btn-danger">Eliminar Del Carrito</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+

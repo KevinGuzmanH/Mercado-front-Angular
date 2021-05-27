@@ -39,12 +39,13 @@ export class LoginComponent implements OnInit {
         this.ServTknService.setUserName(data.nombreUsuario);
         this.ServTknService.setAuthorities(data.authorities);
         this.roles = data.authorities;
-        this.router.navigate(['allproducts']);
+        this.router.navigate(['allproducts']).then(() => {window.location.reload()});
       },error => {
         this.isLogged = false;
         this.isLoggingFail = true;
-        this.errorMs = error.error.message;
-        console.log(this.errorMs);
+        if (error.error.error){
+          this.errorMs = 'Error al iniciar sesión, compruebe los campos nuevamente';
+        }
       }
     )
   }

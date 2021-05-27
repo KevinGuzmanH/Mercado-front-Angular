@@ -9,11 +9,13 @@ import {JwtDto} from "../model/jwt-dto";
   providedIn: 'root'
 })
 export class AuthSservService {
-  URL = 'http://localhost:5000/auth'
+  //URL = 'https://mercadoback.herokuapp.com/auth'
+
+    URL = 'http://localhost:8080/auth'
   constructor(private httpclient: HttpClient) { }
 
   public new(nuevoUser: NewUser):Observable<any> {
-      return this.httpclient.post<any>(this.URL + '/nuevo', nuevoUser);
+      return this.httpclient.post(this.URL + '/nuevo', nuevoUser,{responseType: "text"});
   }
   public login(User: LoginUser):Observable<JwtDto> {
     return this.httpclient.post<JwtDto>(this.URL + '/login', User);

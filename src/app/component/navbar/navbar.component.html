@@ -6,7 +6,7 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <i class="bi bi-house mt-2"></i><li class="nav-item">
+        <li class="nav-item">
           <a class="nav-link active" aria-current="page" role="button" (click)="goHome()">Home</a>
         </li>
         <li class="nav-item">
@@ -14,21 +14,22 @@
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Catergoria
+            Categoría
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="#">Action</a></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
+            <li><a class="dropdown-item" role="button" href="category" (click)="category('telefonos')">Teléfonos y Tablets</a></li>
+            <li><a class="dropdown-item" role="button" href="category" (click)="category('Accesorios')">Accesorios</a></li>
+            <li><a class="dropdown-item" role="button" href="category" (click)="category('Juguetes')">Juguetes y Bebés</a></li>
+            <li><a class="dropdown-item" role="button" href="category" (click)="category('Hogar')">Hogar</a></li>
+            <li><a class="dropdown-item" role="button" href="category" (click)="category('Deportes')">Deportes</a></li>
           </ul>
         </li>
 
       </ul>
       <div class="d-flex">
         <button *ngIf="!logged" class="btn btn-group-sm nav-item" routerLink="/login"><i class="bi bi-box-arrow-in-right"></i> Iniciar sesión</button>
-        <button *ngIf="!logged" class="btn btn-group-sm nav-item" routerLink="/register">Registrarse</button>
-        <button *ngIf="logged" class="btn btn-group-sm btn-light nav-item"><i class="bi bi-cart-dash"></i></button>
+        <button *ngIf="!logged" class="btn btn-group-sm nav-item" routerLink="/register"><i class="bi bi-arrow-right-circle-fill"></i> Registrarse</button>
+        <button *ngIf="logged" routerLink="/car" class="btn btn-group-sm nav-item" [disabled]="!hasProductos"><i class="bi bi-cart-dash"></i> Carrito </button>
         <button *ngIf="logged" (click)="onLogOut()" class="btn btn-group-sm  nav-item"><i class="bi bi-x-circle"></i> Cerrar Sesión</button>
       </div>
     </div>

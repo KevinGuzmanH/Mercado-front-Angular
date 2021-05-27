@@ -4,29 +4,29 @@ import {ServiceService} from "../../ProductService/service.service";
 import {Router} from "@angular/router";
 
 @Component({
-  selector: 'app-offers',
-  templateUrl: './offers.component.html',
-  styleUrls: ['./offers.component.css']
+  selector: 'app-category',
+  templateUrl: './category.component.html',
+  styleUrls: ['./category.component.css']
 })
-export class OffersComponent implements OnInit {
+export class CategoryComponent implements OnInit {
   productos: Producto[]=new Array();
-
+  categoria = '';
   constructor(private service: ServiceService, private router: Router) { }
 
   ngOnInit(): void {
-    this.getOffers();
+    this.getByCategor()
   }
   info(producto: Producto){
     localStorage.setItem('selectProduct',JSON.stringify(producto));
     this.router.navigate(['productinfo']);
   }
-  getOffers(){
-    this.service.getOffers().subscribe(
+  getByCategor(){
+    this.categoria = JSON.parse(<string>localStorage.getItem('selectCategory'));
+    this.service.getByCategory(this.categoria).subscribe(
       data => {
         this.productos = data;
       }
     )
   }
-
 
 }

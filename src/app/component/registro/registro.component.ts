@@ -27,7 +27,7 @@ export class RegistroComponent implements OnInit {
   ngOnInit(): void {
     if (this.ServTknService.getToken()){
       this.isLogged = true;
-    }
+    };
   }
 
   onRegister(): void{
@@ -36,16 +36,17 @@ export class RegistroComponent implements OnInit {
     this.registerUsuario.email = this.email;
     this.registerUsuario.password = this.password;
     this.registerUsuario.authorities = this.roles;
-    this.AuthSservService.login(this.registerUsuario).subscribe(
+    this.AuthSservService.new(this.registerUsuario).subscribe(
       data => {
         this.isRegistered = true;
         this.isRegisterFail = false;
+        this.errorMs = 'Cuenta Creada';
         this.router.navigate(['login']);
       },error => {
-        this.isRegistered = false;
         this.isRegisterFail = true;
-        this.errorMs = error.error.message;
-        console.log(this.errorMs);
+        this.isRegistered = false;
+        this.errorMs = error.error;
+        console.log(error);
       }
     )
   }

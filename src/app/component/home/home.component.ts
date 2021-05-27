@@ -11,7 +11,7 @@ import {ServTknService} from "../../serviceTkn/serv-tkn.service";
 })
 export class HomeComponent implements OnInit {
   nombreUser = '';
-
+  admin = false;
   productos: Producto[]=new Array();
   producto: Producto = new Producto();
   constructor(private service: ServiceService, private router: Router, private ServTknService: ServTknService) { }
@@ -28,9 +28,19 @@ export class HomeComponent implements OnInit {
       }
     )
   }
+  category(categoria: string){
+    localStorage.setItem('selectCategory',JSON.stringify(categoria));
+  }
   isLogged():boolean{
    if (this.ServTknService.getToken()){
-     this.nombreUser = this.ServTknService.getUserName();
+
+       const Authorities_KEY = 'AuthAuthorities';
+       let expected = sessionStorage.getItem(Authorities_KEY) || '{}';
+       console.log(expected)
+        if (expected.toString() === '[{"authority":"ROLE_USER"},{"authority":"ROLE_ADMIN"}]'){
+          this.admin = true;
+        }
+
      return true;
    }else {
      return false;
@@ -39,6 +49,11 @@ export class HomeComponent implements OnInit {
   info(producto: Producto){
     localStorage.setItem('selectProduct',JSON.stringify(producto));
     this.router.navigate(['productinfo']);
+  }
+  delete(id: number){
+    this.service.deleteProduct(id).subscribe(
+      data => {window.location.reload()}
+    );
   }
   id(){
     this.router.navigate(['productinfo']);

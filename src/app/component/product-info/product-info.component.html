@@ -6,7 +6,7 @@
   <div id="mainCard" class="card">
     <div class="card-body">
       <div class="row">
-        <div class="col-lg-6 offset-1">
+        <div class="col-lg-5 offset-lg-1">
           <img src="{{producto.imagen}}" class="img-fluid" alt="...">
         </div>
         <div class="col-lg-4 offset-lg-1">
@@ -15,13 +15,15 @@
               <p id="productNM">{{producto.nombre}}</p>
               <hr>
               <p id="productVL">${{producto.valor}}</p>
-              <p>¡Envio Gratis Por Tiempo Limitado!</p>
+              <p>¡Envio Gratis Por  Tiempo Limitado!</p>
               <div id="inputcantidad" class="input-group mb-3">
                 <button class="btn btn-outline-secondary" type="button" id="button-addon1">Cantidad</button>
                 <input type="number" id="inputUnidades" class="form-control" required [placeholder]=" 'Máximo  ' + producto.existencias"   aria-describedby="button-addon1">
               </div>
-              <button id="btnComprar" class="btn text-white">Comprar Ahora</button>
-              <button id="btnCarro" class="btn text-white">Agregar al Carro</button>
+              <p>{{producto.descripcion}}</p>
+              <button  id="btnComprar" class="btn text-white">Comprar Ahora</button>
+              <button (click)="addToCar(producto)" id="btnCarro" class="btn text-white">Agregar al Carro</button>
+
             </div>
           </div>
         </div>

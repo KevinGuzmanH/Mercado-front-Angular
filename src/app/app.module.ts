@@ -14,6 +14,10 @@ import { LoginComponent } from './component/login/login.component';
 import { RegistroComponent } from './component/registro/registro.component';
 import {FormsModule} from "@angular/forms";
 import {InterceptorService} from "./interceptor/interceptor.service";
+import { CarComponent } from './component/car/car.component';
+import { ToastrModule} from "ngx-toastr";
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import { CategoryComponent } from './component/category/category.component';
 
 @NgModule({
   declarations: [
@@ -24,12 +28,16 @@ import {InterceptorService} from "./interceptor/interceptor.service";
     ProductInfoComponent,
     OffersComponent,
     LoginComponent,
-    RegistroComponent
+    RegistroComponent,
+    CarComponent,
+    CategoryComponent
   ],
     imports: [
         BrowserModule,
         AppRoutingModule,
         HttpClientModule,
+        BrowserAnimationsModule,
+        ToastrModule.forRoot(),
         FormsModule
     ],
   providers: [ServiceService,InterceptorService],

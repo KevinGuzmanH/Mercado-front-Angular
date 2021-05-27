@@ -1,6 +1,9 @@
 #carouselExampleSlidesOnly{
   margin: auto;
 }
+.carousel {
+  margin-top: 30px;
+}
 img{
   height: 300px;
 }
@@ -12,4 +15,7 @@ img{
 }
 .card-img-top{
   height: 200px;
+}
+a{
+  margin-top: 5px ;
 }
