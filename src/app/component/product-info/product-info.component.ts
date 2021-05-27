@@ -13,6 +13,7 @@ export class ProductInfoComponent implements OnInit {
   producto: Producto = new Producto();
   isLogged = false;
   productoAdd = false;
+  message = 'Producto Agregado';
   constructor(private ServTknService: ServTknService, private ServiceService: ServiceService, private router: Router) { }
 
   ngOnInit(): void {
@@ -31,10 +32,9 @@ export class ProductInfoComponent implements OnInit {
       this.ServiceService.addToCar(producto, username).subscribe(
         data => {
           this.productoAdd = true;
-          this.router.navigate(['car']).then(
-            () => {window.location.reload()}
-          );
+          window.location.reload();
         },error => {
+          this.message = 'Error al agregar el producto';
           console.log(error.message)
         }
       );

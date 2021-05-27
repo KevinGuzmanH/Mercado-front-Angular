@@ -14,7 +14,7 @@ export class Producto{
     this.nombre = 'nombre';
     this.valor = 0;
     this.existencias = 0;
-    this.categoria = 'categoria';
+    this.categoria = 'telefono';
     this.imagen = 'imagen';
     this.descripcion = 'descripcion';
     this.oferta = false;

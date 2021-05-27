@@ -11,6 +11,7 @@ import {ServTknService} from "../../serviceTkn/serv-tkn.service";
 })
 export class HomeComponent implements OnInit {
   nombreUser = '';
+  message = '';
   admin = false;
   productos: Producto[]=new Array();
   producto: Producto = new Producto();
@@ -23,8 +24,7 @@ export class HomeComponent implements OnInit {
   getProducts(){
     this.service.getProducts().subscribe(
       data => {
-        this.productos = data;this.productos.forEach(t => {
-          console.log(t.descripcion)} );
+        this.productos = data;
       }
     )
   }
@@ -33,10 +33,9 @@ export class HomeComponent implements OnInit {
   }
   isLogged():boolean{
    if (this.ServTknService.getToken()){
-
+      this.nombreUser = this.ServTknService.getUserName();
        const Authorities_KEY = 'AuthAuthorities';
        let expected = sessionStorage.getItem(Authorities_KEY) || '{}';
-       console.log(expected)
         if (expected.toString() === '[{"authority":"ROLE_USER"},{"authority":"ROLE_ADMIN"}]'){
           this.admin = true;
         }

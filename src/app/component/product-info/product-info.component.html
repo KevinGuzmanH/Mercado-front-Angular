@@ -1,5 +1,5 @@
 <div id="header">
-  <p id="headerT"> {{producto.categoria}}</p>
+  <p id="headerT"> {{producto.categoria.toUpperCase()}}</p>
 </div>
 <div class="container">
 
@@ -21,9 +21,11 @@
                 <input type="number" id="inputUnidades" class="form-control" required [placeholder]=" 'Máximo  ' + producto.existencias"   aria-describedby="button-addon1">
               </div>
               <p>{{producto.descripcion}}</p>
-              <button  id="btnComprar" class="btn text-white">Comprar Ahora</button>
-              <button (click)="addToCar(producto)" id="btnCarro" class="btn text-white">Agregar al Carro</button>
-
+              <button  id="btnComprar" class="btn btn-success mx-3">Comprar Ahora</button>
+              <button (click)="addToCar(producto)" onclick="toastshow('toast')" id="btnCarro" class="btn btn-primary">Agregar al Carro</button>
+              <div class="toast position-fixed top-0 end-0 mt-5 mx-2" id="toast" role="alert" aria-live="assertive" aria-atomic="true">
+                <div class="toast-body">{{message}}</div>
+              </div>
             </div>
           </div>
         </div>

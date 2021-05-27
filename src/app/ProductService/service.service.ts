@@ -21,7 +21,9 @@ export class ServiceService {
   productInfo(id: number){
     return this.http.get<Producto> (this.URL + '/getbyid/'+id);
   }
-
+  updateProduct(): Observable<any>{
+    return this.http.put(this.URL + '/updateproduct',new Producto(), {responseType: "text"});
+  }
   deleteProduct(id: number): Observable<any>{
     return this.http.delete(this.URL + /delete/+id, {responseType: "text"});
   }

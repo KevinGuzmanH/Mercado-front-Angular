@@ -1,7 +1,8 @@
 <div  class="container">
 
-  <div *ngIf="isLogged()" class="text-center text-white container p-4 ">
-    <p class="fs-1 mt">Bienvenid@ {{nombreUser}}</p>
+  <div *ngIf="isLogged()" class="text-center text-white container p-4
+Proyecto">
+    <p class="fs-1 mt text-dark">Bienvenid@ {{nombreUser}}</p>
   </div>
 
   <div class="row" id="homeCtn">
@@ -55,7 +56,6 @@
                 <div class="cardBody">
                   <p class="productValue">Desde $ {{producto.valor}}</p>
                   <p>Existencias {{producto.existencias}}</p>
-                  <button *ngIf="admin" class="btn btn-primary m-3">Editar</button>
                   <button (click)="delete(producto.id)" *ngIf="admin" class="btn btn-danger">Eliminar</button>
                 </div>
               </div>

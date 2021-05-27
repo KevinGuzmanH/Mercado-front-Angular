@@ -1,18 +1,39 @@
-<div class="text-center text-white container p-4 ">
+<div class="text-center text-dark container p-4 pt-5 ">
   <p class="fs-1 mt">¡ {{nombreUsuario}} ! No dejes que el carro se oxide</p>
-  <div class="container">
-    <div *ngFor="let producto of productos" class="card mb-5" style="display: block">
+  <div class="container mb-3">
+    <div *ngFor="let producto of productos" class="card pb-5 mt-5 pt-5" style="display: block">
       <div class="row g-0">
         <div class="col-md-4">
-          <img class="w-75 my-3" src="{{producto.imagen}}" alt="...">
+          <img class="w-75 my-3 img-fluid" src="{{producto.imagen}}" alt="Imagen del Producto">
         </div>
         <div class="col-md-8">
           <div class="card-body">
-            <h5 class="card-title">{{producto.nombre}}</h5>
-            <p class="card-text">{{producto.descripcion}}</p>
-            <p class="card-text"><small class="text-muted">Aún quedan {{producto.existencias}} unidades</small></p>
-            <button class="btn btn-success mx-2">Finalizar Compra</button>
-            <button (click)="deleteFromCar(producto.id)" class="btn btn-danger">Eliminar Del Carrito</button>
+             <h5 class="card-title text-dark">{{producto.nombre}}</h5>
+             <p class="card-text text-dark">{{producto.descripcion}}</p>
+             <p class="card-text"><small class="text-muted">Aún quedan {{producto.existencias}} unidades</small></p>
+            <button type="button" class="btn btn-primary mx-3" data-bs-toggle="modal" data-bs-target="#exampleModal">
+              Finalizar Compra
+            </button>
+
+            <button (click)="deleteFromCar(producto.id)" class="btn btn-danger mt-2">Eliminar Del Carrito</button>
+
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Aviso</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                    Esta página es solo de demostración. Ninguno de los productos vistos aquí son para la venta
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Entendido</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
           </div>
         </div>
       </div>

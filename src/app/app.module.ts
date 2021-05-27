@@ -30,7 +30,7 @@ import { CategoryComponent } from './component/category/category.component';
     LoginComponent,
     RegistroComponent,
     CarComponent,
-    CategoryComponent
+    CategoryComponent,
   ],
     imports: [
         BrowserModule,
