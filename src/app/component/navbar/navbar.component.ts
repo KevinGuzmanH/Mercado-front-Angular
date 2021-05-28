@@ -36,6 +36,9 @@ export class NavbarComponent implements OnInit {
   }
   category(categoria: string){
     localStorage.setItem('selectCategory',JSON.stringify(categoria));
+    if (window.location.href != 'https://projectmarket.netlify.app/#/allproducts'){
+      window.location.reload();
+    }
   }
   goHome(){
     this.router.navigate(['allproducts'])

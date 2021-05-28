@@ -18,6 +18,7 @@ import { CarComponent } from './component/car/car.component';
 import { ToastrModule} from "ngx-toastr";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import { CategoryComponent } from './component/category/category.component';
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,7 @@ import { CategoryComponent } from './component/category/category.component';
         ToastrModule.forRoot(),
         FormsModule
     ],
-  providers: [ServiceService,InterceptorService],
+  providers: [ServiceService,InterceptorService, {provide: LocationStrategy, useClass: HashLocationStrategy}],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}

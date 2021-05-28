@@ -11,7 +11,7 @@ import {JwtDto} from "../model/jwt-dto";
 export class AuthSservService {
   //URL = 'https://mercadoback.herokuapp.com/auth'
 
-    URL = 'http://localhost:8080/auth'
+    URL = 'https://mercado-back.herokuapp.com/auth'
   constructor(private httpclient: HttpClient) { }
 
   public new(nuevoUser: NewUser):Observable<any> {

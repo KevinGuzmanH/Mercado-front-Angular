@@ -9,11 +9,11 @@ Proyecto">
     <div class="col-lg-3">
       <h1 class="my-4">Proyecto Mercado</h1>
       <div class="list-group">
-        <a class="list-group-item" href="category" (click)="category('telefonos')">Teléfonos y Tablets</a>
-        <a class="list-group-item" href="category" (click)="category('accesorios')">Accesorios</a>
-        <a class="list-group-item" href="category" (click)="category('juguetes')">Juguetes y Bebés</a>
-        <a class="list-group-item" href="category" (click)="category('hogar')">Hogar</a>
-        <a class="list-group-item" href="category" (click)="category('deportes')">Deportes</a>
+        <a class="list-group-item" (click)="category('telefonos')" href="#category"  >Teléfonos y Tablets</a>
+        <a class="list-group-item" (click)="category('accesorios')" href="#category" >Accesorios</a>
+        <a class="list-group-item" (click)="category('juguetes')" href="#category" >Juguetes y Bebés</a>
+        <a class="list-group-item" (click)="category('hogar')" href="#category" >Hogar</a>
+        <a class="list-group-item" (click)="category('deportes')" href="#category" >Deportes</a>
       </div>
     </div>
     <div class="col-lg-9">
@@ -49,8 +49,8 @@ Proyecto">
       <div id="products" class="row">
         <div *ngFor="let producto of productos" class="col-lg-4 col-md-6 mb-4">
           <a class="" role="button">
-            <div class="card h-100">
-              <img  (click)="info(producto)" class="card-img-top" src="{{producto.imagen}}" alt="..." />
+            <div class="card h-100 ">
+              <img  (click)="info(producto)" class="card-img-top img-fluid" src="{{producto.imagen}}" alt="..." />
               <div class="card-body">
                 <h4 class="card-title tittle"><button (click)="info(producto)" class="btn btn-light productName">{{producto.nombre}}</button></h4>
                 <div class="cardBody">

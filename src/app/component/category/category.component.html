@@ -5,8 +5,8 @@
   <div class="container">
     <div class="row">
       <div *ngFor="let producto of productos" class="col-lg-4 col-md-6 mb-4">
-        <div class="card h-100">
-          <img  role="button" (click)="info(producto)" class="card-img-top" src="{{producto.imagen}}" alt="..." />
+        <div class="card h-100 ">
+          <img  role="button" (click)="info(producto)" class="card-img-top img-fluid" src="{{producto.imagen}}" alt="..." />
           <div class="card-body">
             <h4 class="card-title tittle"><button (click)="info(producto)" class="btn btn-light productName">{{producto.nombre}}</button></h4>
             <div class="cardBody">
@@ -15,17 +15,6 @@
             </div>
           </div>
           <div class="card-footer"><small class="text-muted">{{producto.categoria.toUpperCase()}}</small></div>
-        </div>
-      </div>
-      <div class="col-lg-4 col-md-6 mb-4">
-        <div class="card h-60">
-          <a href="#!"><img class="card-img-top" src="https://via.placeholder.com/700x400" alt="..." /></a>
-          <div class="card-body">
-            <h4 class="card-title"><a href="#!">Item Five</a></h4>
-            <h5>$24.99</h5>
-            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur! Lorem ipsum dolor sit amet.</p>
-          </div>
-          <div class="card-footer"><small class="text-muted">★ ★ ★ ★ ☆</small></div>
         </div>
       </div>
     </div>

@@ -7,25 +7,45 @@
     <div class="card-body">
       <div class="row">
         <div class="col-lg-5 offset-lg-1">
-          <img src="{{producto.imagen}}" class="img-fluid" alt="...">
+          <img src="{{producto.imagen}}" class="img-fluid mt-4" alt="...">
         </div>
         <div class="col-lg-4 offset-lg-1">
           <div class="card">
             <div class="card-body">
-              <p id="productNM">{{producto.nombre}}</p>
+              <p id="productNM" class="fs-1">{{producto.nombre}}</p>
               <hr>
-              <p id="productVL">${{producto.valor}}</p>
+              <p id="productVL" class="fs-3">${{producto.valor}}</p>
               <p>¡Envio Gratis Por  Tiempo Limitado!</p>
               <div id="inputcantidad" class="input-group mb-3">
                 <button class="btn btn-outline-secondary" type="button" id="button-addon1">Cantidad</button>
                 <input type="number" id="inputUnidades" class="form-control" required [placeholder]=" 'Máximo  ' + producto.existencias"   aria-describedby="button-addon1">
               </div>
               <p>{{producto.descripcion}}</p>
-              <button  id="btnComprar" class="btn btn-success mx-3">Comprar Ahora</button>
-              <button (click)="addToCar(producto)" onclick="toastshow('toast')" id="btnCarro" class="btn btn-primary">Agregar al Carro</button>
-              <div class="toast position-fixed top-0 end-0 mt-5 mx-2" id="toast" role="alert" aria-live="assertive" aria-atomic="true">
+              <button  id="btnComprar" class="btn btn-success mx-lg-1 mt-1" data-bs-toggle="modal" data-bs-target="#Modal2">Comprar Ahora</button>
+              <button [disabled]="!isLogged" (click)="addToCar(producto)" onclick="toastshow('toast')" id="btnCarro" class="btn btn-primary mt-1">Agregar al Carro</button>
+
+              <div  class="toast position-fixed top-0 end-0 mt-5 mx-2" id="toast" role="alert" aria-live="assertive" aria-atomic="true">
                 <div class="toast-body">{{message}}</div>
               </div>
+
+              <div class="modal fade" id="Modal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel">Aviso</h5>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                      Esta página es solo de demostración. Ninguno de los productos vistos aquí son para la venta
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Entendido</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+
             </div>
           </div>
         </div>
